@@ -606,6 +606,17 @@ else:
     
 
 #홀수 짝수 구별하기 in 사용
+```python
+#홀수 짝수 구별하기
+num = int(input("정수를 입력하세요"))
+
+if num%2==0:
+    print("짝수입니다.")
+else:
+    print("홀수입니다.")
+    
+
+#홀수 짝수 구별하기 in 사용
 number = input("정수 입력 : ")
 last_character = number[-1]
 
@@ -613,3 +624,4 @@ if last_character in "02468":
     print("짝수입니다.")
 else:
     print("홀수입니다.")
+```
