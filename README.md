@@ -339,3 +339,14 @@ python tutor : 프로그래밍 초보자가 흐름을 쉽게 이해할 수 있�
 swap = 변수의 교체 
 
 format : 문자열을 가지고 있는 함
+```python
+format_a = "{}만원".format(5000)
+format_b = "파이썬 열공하여 첫 연봉 {}만원".format(5000)
+format_c = "{} {} {}".format(3000,4000,5000)
+format_d = "{} {} {}".format(1,"문자열",5000)
+
+print(format_a)
+print(format_b)
+print(format_c)
+print(format_d)
+```
