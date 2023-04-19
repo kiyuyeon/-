@@ -6,7 +6,7 @@
 
 - 월요일: OT
 - 화요일: Python 자료형
-- 수요일:
+- 수요일: Python 자료형 ,
 - 목요일:
 - 금요일:
 
@@ -76,7 +76,7 @@ change ***directory***
 
 cd C:\Users\chwo6\Documents
 
-cd .. 
+cd .. 상위 폴더로 이동
 
 확장자: 파일 성격을 구분하는 꼬리 등
 문장: 실행할 수 있는 최소 단위
@@ -338,7 +338,8 @@ python tutor : 프로그래밍 초보자가 흐름을 쉽게 이해할 수 있�
 
 swap = 변수의 교체 
 
-format : 문자열을 가지고 있는 함
+format : 문자열을 가지고 있는 함수 {}를 포함한 문자열 뒤에 마침표(.)를 찍고 format 함수를 사용 중괄호의 개수와 format 함수 괄호 안 매개변수의 개수는 반드시 같아야한다.
+
 ```python
 format_a = "{}만원".format(5000)
 format_b = "파이썬 열공하여 첫 연봉 {}만원".format(5000)
@@ -350,3 +351,255 @@ print(format_b)
 print(format_c)
 print(format_d)
 ```
+
+format 활용법 
+
+```python
+#정수
+output_a = "{:d}".format(52)
+
+output_b = "{:5d}".format(52) #5칸
+output_c = "{:10d}".format(52) #10칸
+
+output_d = "{:05d}".format(52) #양수
+output_e = "{:05d}".format(-52) #음수
+print("# 기본")
+print("기본",output_a)
+
+print("# 특정칸 출력하기")
+print("특정칸의 출력하기 5칸",output_b)
+print("특정칸의 출력하기 10칸",output_c)
+
+print("# 빈칸을 0으로 채우기")
+print("format 값의 양수",output_d)
+print("format 값의 음수",output_e)
+```
+
+format 부동소수점 출력하기
+
+```python
+#부동 소수점 출력 하기
+output_a = "{:f}".format(52.273) 
+output_b = "{:15f}".format(52.273 ) # 15칸 만들기  
+output_c = "{:+15f}".format(52.273) # 15칸에 부호 추가하기 
+output_d = "{:015f}".format(52.273) # 15칸에 부호 추가하고 0으로 채우기
+
+print(output_a)
+print(output_b)
+print(output_c)
+print(output_d)
+```
+
+부동소수점은 기몬적으로 .뒤에 6자리이다.(기본값)
+
+format 부동소수점 아래 지정하기
+
+```python
+#부동 소수점 아래 지정하기
+output_a = "{:15.3f}".format(52.273) #15칸 뛰고 소수점 3자리수 만 나옴
+output_b = "{:15.2f}".format(52.273 ) #15칸 뛰고 소수점 2자리수 만 나옴
+output_c = "{:+15.1f}".format(52.273) #15칸 뛰고 소수점 1자리수 만 나옴
+
+print(output_a)
+print(output_b)
+print(output_c)
+```
+
+다음 코드처럼 .을 입력하고 뒤에 몇 번째 자리수까지  표시할지 지정하면 된다.
+
+의미 없는 소수점 제거하기
+
+파이썬은 0과 0.0을 출력했을 때 내부적으로 자료형이 달므로 서로 다른 값으로 출력합니다. 그런데 의미 없는 0을 제거하고 출력하고 싶을떼 {:g}를 사용하면됩니다.
+
+ 
+
+```python
+# 의미 없는 소수점 제거하기
+output_a = "{:.g}".format(52.0) 
+print(output_a)
+```
+
+파괴적 함수 : 원본은 변한다.
+
+비파괴적 함수 : 원본은 변하지 않는다. 
+
+대소문자 바꾸기(원본은 바꾸지 않는다.)
+
+upper() : 알파벳 모두를 대문자로 만듭니다.
+
+lower() : 알파벳 모두를 소문자로 만듭니다.
+
+```python
+#upper , lower 사용하기 비파괴적 함수
+a = "Hello World"
+print(a.upper())
+print(a.lower)
+print(a)#비파괴적 함수이므로 원본은 바뀌지 않는다.
+
+b=a.upper()#b에서 a를 할당하여 파괴적인 함수로 변환한다.
+print(b)
+
+c=a.lower()#c에서 a를 할당하여 파괴적인 함수로 변환한다.
+print(c)
+```
+
+문자열 양옆에 공백 제거하기 
+
+strip() : 문자열 양옆에 공백을 제거합니다. 
+
+lstrip() : 문자열 왼쪽에 공백을 제거합니다.
+
+rstrip() : 문자열 오른쪽에 공백을 제거합니다.
+
+```python
+#문자열 공백 제거하기 
+input_a = """
+    안녕하세요
+"""
+print(input_a.strip())
+```
+
+문자열 구성 파악하기 isOO()
+
+isalnum() : 문자열이 알파벳 또는 숫자로만 구성되어 있는지 확인합니다.
+
+isalpha() : 문자열이 알파벳으로만 구성되어 있는지 확인합니다.
+
+isidentifiter(): 문자열이 식별자로 사용할 수  있는지 확인합니다.
+
+문자열 찾기 
+
+find() : 왼쪽으로부터 찾아서 처음 등장하는 위치를 찾습니다.
+
+rfind() : 오른쪽부터 찾아서 처음 등장하는 위치를 찾습니다.
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 안 | 녕 | 안 | 녕 | 하 | 세 | 요 |
+
+```python
+#문자열 찾기 find(),rfind()
+output_a = "안녕안녕하세요".find("안녕")
+print(output_a)
+
+output_b = "안녕안녕하세요".rfind("안녕")
+print(output_b)
+```
+
+문자열과 in 연산자
+
+in : 문자열 내부에 어떤 문자열이 있는지 확인할때 사용한다
+
+```python
+#in 연산자 문자열 확인하기
+print("안녕"in "안녕하세요")
+print("잘자"in "안녕하세요")
+```
+
+문자열 자르기
+
+split() : 문자열을 특정한 문자로 자를 때는 split()
+
+```python
+#문자열 자르기 split
+a="10,20,30,40,50".split(",")
+print(a)
+```
+
+f-문자열
+
+f - 문자열 : 문자열 앞에 f를 붙이고 붙자열 내부에서 표현식 {}로 감싸서 삽입할 수 있다.
+
+예제 
+
+구의 부피와 겉넓이
+
+```python
+r = int(input("반지름 넓이"))
+pi = 3.141592
+print("구의 부피 ={}".format(4/3*pi*r**3))
+print("구의 겉넓이 ={}".format(4*pi*r**2))
+```
+
+피타고라스의 정리 밑변**2 + 높이**2 = 빗편**2
+
+```python
+c = float(input("밑변의 길이"))
+d = float(input("높이의 길이"))
+print("빗변의 길이는 {}".format((c**2 + d**2)**0.5)) 
+```
+
+불 자료형과 if 조건문
+
+Boolean : True ,False
+
+Boolean 비교연산자
+
+| 연산자 | 설명 |
+| --- | --- |
+| == | 같다 |
+| != | 다르다 |
+| < | 크다 |
+| > | 작다 |
+| <= | 크거나 작다 |
+| >= | 작거나 크다 |
+
+Boolean 논리 연산자
+
+| 연산자 | 의미 | 설명 |
+| --- | --- | --- |
+| not | 아니다 | 불을 반대로 전환합니다 |
+| and | 그리고 | 피연산자 두 개가 모두 참일 때 True를 출력하며 그 외는 모두 False를 출력합니다. |
+| or | 또는 | 피연자는 두 개 중에 하나만 참이라도 True를 출력하며 모두 거짓일때만 False를 출력합니다 |
+
+if 조건문 : 조건의 따라 코드를 실행하거나 실행하지 않게 만드는 구문
+
+조건 분기 : 조건을 기반으로 실행의 흐름을 변경하는 것
+
+```python
+# IF문 기본 사용
+number = int(input("정수 입력 >"))
+
+if number > 0:
+    print("양수입니다.")
+elif number <0 :
+    print("음수입니다.")
+else:
+    print("0입니다.")
+```
+
+계절을 구분하기
+
+```python
+import datetime #날짜/시간과 관련된 기능을 가져온다.
+now = datetime.datetime.now() # now에 날짜/시간을 구한다.
+print("{}년{}월{}일{}시{}분{}초".format(now.year,now.month,now.day,now.hour,now.minute,now.second))
+
+if 3<=now.month <=5:
+    print("이번 달은 {}월로 봄인다.".format(now.month))
+elif 6<=now.month <=8:
+    print("이번 달은 {}월로 여름인다.".format(now.month))
+elif 9<=now.month <=11  :
+    print("이번 달은 {}월로 가을인다.".format(now.month))
+else:
+    print("이번 달은 {}월로 겨울인다.".format(now.month))
+```
+
+홀수 짝수 구분하기
+#홀수 짝수 구별하기
+num = int(input("정수를 입력하세요"))
+
+if num%2==0:
+    print("짝수입니다.")
+else:
+    print("홀수입니다.")
+    
+
+#홀수 짝수 구별하기 in 사용
+number = input("정수 입력 : ")
+last_character = number[-1]
+
+if last_character in "02468":
+    print("짝수입니다.")
+else:
+    print("홀수입니다.")
