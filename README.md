@@ -12,8 +12,6 @@
 
 # 수업 2023.4.17
 
-컴퓨터 비전 자연어 처리 (딥러닝) 이유 : 딥러닝은 가르치는  수업재료를 준다
-
 Top 10 ML/AI Trends
 
 Automated machine learning(autoML)
