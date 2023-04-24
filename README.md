@@ -1,5 +1,3 @@
-# 수업
-
 이 문서는 수업에 대한 내용을 다룹니다.
 
 ## 1주차 일정
@@ -7,7 +5,7 @@
 - 월요일: OT
 - 화요일: Python 자료형
 - 수요일: Python 자료형 , if 조건문
-- 목요일:
+- 목요일: if조건문, 딕셔너리 와 반복문
 - 금요일:
 
 # 수업 2023.4.17
@@ -465,6 +463,16 @@ isalpha() : 문자열이 알파벳으로만 구성되어 있는지 확인합니�
 
 isidentifiter(): 문자열이 식별자로 사용할 수  있는지 확인합니다.
 
+isdecimal() : 문자열이 정수 형태인지 확인합니다.
+
+isdigit() : 문자열이 숫자로 인식될 수 있는지 확인합니다.
+
+isspace() : 문자열이 공백으로만 구성되어 있는지 확인합니다.
+
+islower() : 문자열이 소문자로만 구성되어 있는지 확인합니다.
+
+isupper() : 문자열이 대문자로만 구성되어 있는지 확인합니다.
+
 문자열 찾기 
 
 find() : 왼쪽으로부터 찾아서 처음 등장하는 위치를 찾습니다.
@@ -507,6 +515,16 @@ print(a)
 f-문자열
 
 f - 문자열 : 문자열 앞에 f를 붙이고 붙자열 내부에서 표현식 {}로 감싸서 삽입할 수 있다.
+
+```python
+data = ['별',2,'M','서울시 강서구','Y']
+print(f"""이름 : {data[0]}
+나이 : {data[1]}
+성별 : {data[2]}
+지역 : {data[3]}
+중성화 여부 : {data[4]}
+""")
+```
 
 예제 
 
@@ -554,6 +572,10 @@ if 조건문 : 조건의 따라 코드를 실행하거나 실행하지 않게 �
 
 조건 분기 : 조건을 기반으로 실행의 흐름을 변경하는 것
 
+elif : 세 개 이상의 조건을 연결해서사용 if와 else문 사이에 입 
+
+else : if 조건문 뒤에 사용하며 if 조건문의 조건이 거짓일 때 실행되는 부분
+
 ```python
 # IF문 기본 사용
 number = int(input("정수 입력 >"))
@@ -584,6 +606,7 @@ else:
 ```
 
 홀수 짝수 구분하기
+
 ```python
 #홀수 짝수 구별하기
 num = int(input("정수를 입력하세요"))
@@ -593,6 +616,7 @@ if num%2==0:
 else:
     print("홀수입니다.")
     
+
 #홀수 짝수 구별하기 in 사용
 number = input("정수 입력 : ")
 last_character = number[-1]
@@ -600,5 +624,524 @@ last_character = number[-1]
 if last_character in "02468":
     print("짝수입니다.")
 else:
-    print("홀수입니다.")
+    print("홀수입니다.
 ```
+
+pass : 프로그래밍의 전체 골격을 잡아두고 내부에서 처리할 내용은 나중에 만들고자 할 때 사용한다.
+
+IndentationError : if 조건문 사이에는 무조권 들여쓰기 4칸을 넣고 코드를 작성해야만 하는대 안했을 경우
+
+raise NotlmplementedError : pass 잊어버리고 사용할 경우 아직 구현하지 않는 부분 이라는 오류
+
+태어난 연도를 입력받아 띠를 출력하는 프로그램
+
+조건 
+
+입력받은 연도를 12로 나눈 나머지를 사용 나머지가 0,1,2,3,4,5,6,7,8,9,10,11 일때 12로 나눈 나머지가 각각 원숭이,닭,개,쥐,소,범,토끼,용,뱀,말,양띠 입니다.
+
+```python
+birth_year = int(input("태어난 해를 입력하세요"))
+
+if birth_year%12==0:
+    print("원숭이 띠")
+elif birth_year%12==1:
+    print("닭 띠")
+elif birth_year%12==2:
+    print("개 띠")
+elif birth_year%12==3:
+    print("돼지 띠")
+elif birth_year%12==4:
+    print("쥐 띠")
+elif birth_year%12==5:
+    print("소 띠")
+elif birth_year%12==6:
+    print("범 띠")
+elif birth_year%12==7:
+    print("토끼 띠")
+elif birth_year%12==8:
+    print("용 띠")
+elif birth_year%12==9:
+    print("뱀 띠")
+elif birth_year%12==10:
+    print("말 띠")
+elif birth_year%12==11:
+    print("양 띠")
+```
+
+간단한 대화형 프로그램
+
+조건 안녕 또는 안녕하세요를 입력하면 안녕하세요 정도의 간단한 인사를 할수있게하고
+
+지금 몇시야 또는 지금 몇시에요 처럼 시간을 물어보면 시간을 응답라고
+
+준비되지 않는 문장을 출력시 그대로 출력
+
+```python
+import datetime #날짜/시간과 관련된 기능을 가져온다.
+now = datetime.datetime.now() # now에 날짜/시간을 구한다.
+
+hi = str(input("인사 : "))
+
+if hi in "안녕하세요" or "안녕":
+    print("안녕하세요")
+
+time = str(input("시간 물어보기 : "))
+
+if time in "지금 몇시야" or "지금 몇 시에요":
+    print("{}시{}분{}초".format(now.hour,now.minute,now.second))
+
+a = str(input("지정되지 않는 문자 : "))
+
+if a == a:
+    print(a)
+```
+
+나누어 떨어지는 숫자
+
+숫자를 입력하면 그 숫자가 2,3,4,5로 나누어 떨어지는지 확인하고 출력하는 프로그램
+
+```python
+num = int(input("정수를 입력하세요 : "))
+
+if num %2 == 0:
+    print(num,"은 2로 나누어 떨어지는 숫자입니다.")
+else:
+    print(num,"은 2로 나누어 떨어지는 숫자가 아닙니다.")    
+if num %3 == 0:
+    print(num,"은 3로 나누어 떨어지는 숫자입니다.")
+else:
+    print(num,"은 3로 나누어 떨어지는 숫자가 아닙니다.")
+if num %4 == 0:
+    print(num,"은 4로 나누어 떨어지는 숫자입니다.")
+else:
+    print(num,"은 4로 나누어 떨어지는 숫자가 아닙니다.")
+if num %5 == 0:
+    print(num,"은 5로 나누어 떨어지는 숫자입니다.")
+else:
+    print(num,"은 5로 나누어 떨어지는 숫자가 아닙니다.")
+```
+
+리스트: 여러가지 자료를 저장할 수 있는 자료
+
+요소 : 리스트 내부에 넣는 자료
+
+index : 리스트 기호인 [] 대괄호에 들어간 숫자
+
+리스트 활용
+
+1. 대괄호 안에 음수를 넣어 뒤에서 부터 요소를 선택할수 있다
+2. 리스트 접근 연산자는 이중으로 사용할수 있다.
+3. 리스트안에서도 리스트를 사용할수 있다.
+
+리스트에서 IndexError: 리스트의 길이를 넘은 인덱스로 인덱스 요소에 접근하려고 할 때 발생 하는 에러
+
+리스트 연산
+
+리스트 연결 + 반복* 길이 len
+
+리스트에 요소 추가하기 
+
+extend() : 매개변수로 라스트를 추가하는대 리스트뒤에 다양한 요소를 모두 추가한
+
+append(요소) : 리스트 뒤에 요소를 추가
+
+insert(위치,요소) : 리스트 중간에 요소를 추가
+
+리스트 요소와 연산에 차이 
+
+연산은 비파과적 이고 요소는 파괴적이다.
+
+리스트 요소 제거하기
+
+del 키워드 사용할경우 범위 지정해 리스트 요소를 함꺼번에 제거 가능
+
+del 리스트명[인덱스]
+
+리스트명.pop(인데스)
+
+리스트.remove(값)
+
+clear() : 모두제거하기
+
+리스트 정렬하기
+
+sort() : 리스트 요소를 정렬한다. 기본은 오름차순 정렬
+
+range :  횟수만 지정하면 숫자가 0부터 시작하지만, 다음과 같이 시작하는 숫자와 끝나는 숫자를 지정해서 반복할 수도 있습니다.
+
+**range(시작, 끝):**
+
+리스트 내부에 있는지 확인하기
+
+in/not in : 값 in 리스트
+
+| 목록 | 배열 |
+| --- | --- |
+| 내장 데이터 구조 | 배열 또는 numpy를 사용하여 가져와야 합니다 |
+| 대괄호로 묶음 | ,arry함수를 사용하여 묶어야 합니다 |
+| 다른 유형의 요소로 포함 할수 있습니다. | 다른 형식의 요소를 포함할 수 없습니다. |
+| 가변 크기 중첩 가능 | 중첩을 위해 동일한 크기의 배열이 필요합니다 |
+| 직접 산술 연산을 적용할 수 없습니다. | 직접 산술 연산을 적용할 수 있습니다 |
+| 더 많은 메모리를 소비합니다 | 비교적 적은 메모리를 소비합니다 |
+| 명사적 루프를 만들지 않고 인쇄 할 수 있습니다, | 배열 요소를 인쇄하기 위해 명사적 루프를 만들어야 합니다. |
+
+반복문
+
+전개 연산자 : 리스트 내용을 전개해서 사용 할수 있다
+
+*리스트
+
+전개 연산자는 비파괴적으로 구현 할수 있다
+
+딕셔너리와 반복문
+
+딕셔너리 : 키를 기반으로 값을 저장하는 것
+
+| 자료형 | 의미 | 가리키는 위치 | 선언 형식 |
+| --- | --- | --- | --- |
+| 리스트 | 인덱스를 기반으로 값을 저장 | 인덱스 | 변수 = [] |
+| 딕셔너리 | 키를 기반으로 값을 저장 | 키 | 변수 = {} |
+
+딕셔너리 예시
+
+변수 =  {
+
+키: 값,
+
+키:값
+
+}
+
+| 구분 | 선언 형식 | 사용예 | 틀린예 |
+| --- | --- | --- | --- |
+| 리스트 | list_a = [] | list_a[1] |  |
+| 딕셔너리 | dict_a = {} | dict_a[”name”] | dict_a{”name”} |
+
+딕셔너리 사용 예제
+
+```python
+dictinary = {
+    "name" : "7D 건조망고",
+    "type" : "당절임" ,
+    "ingredient" : ["망고","설탕","메타중아화안나트륨","치자황색소"],
+    "origin" : "필리핀"
+
+}   
+
+print("name : ", dictinary["name"])
+print("type : ", dictinary["type"])
+print("ingredient : ", dictinary["ingredient"])
+print("origin : ", dictinary["origin"])
+
+dictinary["name"] = "8D 건조 망고"
+print("name :", dictinary["name"])
+```
+
+NameError : 딕셔너리에 이름이 정의가 안되있을때 나오는 오류 ex name : "7D 건조망고" → "name" : "7D 건조망고"
+
+KeyError : 딕셔너리에 존재하지 않는 키에 접근하면 KeyError 발생
+
+딕셔너리에 값 추가하기 / 제거하기
+
+딕셔너리[새로운 키] = 새로운 값
+
+dictinary["price"] = 5000
+
+딕셔너리에 요소 추가하기
+
+딕셔너리에 내부에 키가 있는지 존재 확인
+
+in 키워드
+
+key = input(”찾으려는 키”)
+
+**if key in dicttionary:**
+
+print(”있다”)
+
+else: 
+
+print(”없다”)
+
+for 반복문 : 딕셔너리와 함께 사용하기
+
+for 키 변수 in 딕셔너리:
+
+코드
+
+whie 반복문
+
+break : 반복문에서 벗어날때 사용한다
+
+continue : 현재 반복을 생략하고 다음 반복으로 넘어갈때 사용한다.
+
+////1주차 끝
+# 4월 2주차 수업
+
+이 문서는 수업에 대한 내용을 다룹니다.
+
+## 2주차 일정
+
+- 월요일:
+- 화요일:
+- 수요일:
+- 목요일:
+- 금요일:
+
+# 수업 2023.4.24
+
+럄다 :  기능을 전달하는 코드 이런코드를 효율적으로 사용 
+
+map(함수,리스트) : 리스트의 요소를 함수에 넣고 리턴된 값으로 새로운 리스트를 구성해 주는 함수
+
+filter(함수, 리스트) : 리턴된 값이 True인 것으로 새로운 리스트를 구성해 주는 함수
+
+```python
+list_input_a = [1,2,3,4,5]
+
+output_a = map(lambda x: x*x, list_input_a)
+print("map 함수의 실행결과")
+print("map(power, list_input_a):",output_a)
+print("map(power, list_input_a):",list(output_a))
+print()
+
+output_b = filter(lambda x: x<3, list_input_a)
+print("filter 함수의 실행결과")
+print("filter(under3, list_input_a):",output_b)
+print("filter(under3, list_input_a):",list(output_b))
+print()
+```
+
+파일 열고 닫기
+
+파일 객체 = open(문자열 : 파일경로 , 문자열 : 읽기 모드)
+
+|  모드 | 설명 |
+| --- | --- |
+| w | wite 모드(새로 쓰기 모드) |
+| a | append 모드 (뒤에서 이어서 쓰기 모드) |
+| r | read 모드(읽기 모드) |
+
+```python
+file = open("basic.txt","w") #파일 열기 없으면 생성
+
+file.write("Hello Python Programming...!") #basic.txt 파일에 해당 글을 적는다
+
+file.close() # 종료한다.
+```
+
+with 키워드
+
+코드가 길어지거나 많은 조건문과 반복문이 실행되면 열고 닫지 않는 실수가 발생 할 수 있다 이런 실수를 방지하기 위해 with 키워드 같은 형태의 구문을 사용한다
+
+```python
+with open("basic.txt","w") as file:
+	#파일에 텍스트를 씁니다.
+	file.write("Hello Python Programming...!")
+```
+
+정형데이터 :  0반 키 , 세금계산거 등 정형되어 있는 것 
+
+비정형데이터 : 노래 사진 등 정형되지 않았다.
+
+```python
+import random 
+
+hanguls = list("가나다라마바사아자차카타파하")
+
+with open("info.txt","w")as file: #파일 쓰기모드로 엽니다.
+    for i in range(1000):
+        #랜덤한 값으로 변수를 생성합니다.
+        name = random.choice(hanguls) + random.choice(hanguls)
+        weight = random.randrange(40,100)
+        height = random.randrange(140,200)
+        #텍스트를 씁니다.
+        file.write("{}, {}, {} \n".format(name,weight,height))
+        
+        
+with open("info.txt","r") as file:
+    for line in file:
+        #변수를 선언합니다.
+        (name,weight,height) = line.strip().split(",")
+        
+        #데이터가 문제가 있는지 확인합니다.
+        if (not name) or (not weight) or (not height):
+            continue
+    
+        #결과를 계산합니다.
+        bmi = int(weight) / ((int(height)/100)**2)
+        result = ""
+        if 25<= bmi:
+            result ="과체중"
+        elif 18.5 <= bmi:
+            result = "정상 체중"
+        else:
+            result = "저체중"
+        
+        #출력합니다.    
+        print('\n'.join([
+            "이름 : {}",
+            "몸무게 : {}",
+            "키 : {}",
+            "BMI : {}",
+            "결과 : {}"
+        ]).format(name,weight,height,bmi,result))
+        print()
+```
+
+구문 오류와 예외
+
+구문 오류  : 프로그램 실행전 발생하는 오류
+
+런타임 오류, 예외 : 프로그램 실행 중에 발생하는 오류
+
+try :
+
+예외가 발생할 가능성이 있는코두
+
+except: 
+
+예외가 발생하였을때
+
+```python
+try:
+    number_input_a = int(input("정수 입력"))
+    
+    print("원의 반지름 : " , number_input_a)
+    print("원의 둘레 : ",2*3.14*number_input_a)
+    print("원의 넓이",3.14*number_input_a*number_input_a)
+except:
+    print("숫자만 입력해주세요")
+```
+
+else : 예외가 발생하지 앟았을 때 실행할 코드
+
+pass문 사용
+
+```python
+list_input_a = ["52","273","스파이","103"]
+
+list_number = []
+for item in list_input_a:
+    try:
+        float(item)
+        list_number.append(item)
+    except:
+        print("에러가 발생했습니다.")
+        pass
+print("{} 내부에 있는 숫자는".format(list_input_a))
+print("{}입니다.".format(list_number))
+```
+
+finally 구문: 예외 처리 구문에서 가장 마지막에 사용할 수 있는 구문 예외가 발생하든 발생하지 않든 무족건 실행할때 사용
+
+예외 구문과 예외 객체
+
+```python
+#변수 선언
+list_number = [52,273,32,72,100]
+
+#try except 구문으로 예외를 처리합니다.
+try:
+    #숫자를 입력 받습니다.
+    number_input = int(input("정수 입력 > "))
+    #리스트의 요소를 출력합니다.
+    print("{}번째 요소 : {}".format(number_input,list_number[number_input]))
+    
+except ValueError as exception:
+        #valueError가 발생한 경우
+        print("정수를 입력해 주세요!")
+        print("exception :",exception)
+
+except IndexError as exection:
+        #Index Erro가 발생한 경우
+        print("리스트의 인덱스를 벗어났어요")
+        print("exception:",exception)
+
+except Exception as exection:
+    #이외의 에러가 발생한 경우
+    print("미리 파악하지 못한 예외가 발생했습니다.")
+    print("exception",exception)
+```
+
+raise : pass의 반대 그냥 넘어가면 문제가 생기니 여기서 강제 종료시키자
+
+raise 예외 객체
+
+표준 모듈
+
+모듈 : 코드를 분리하고 공유하는 기능
+
+표준 모듈 : 파이썬에 기본적으로 내장된 모듈
+
+외부 모듈 : 사람들이 만들어 공개한 모듈
+
+일반적으로 모듈을 가져오는 import 구문은 코드 가장위에 작성
+
+from : 모듈에는 많운 변수와 함수가  있는대 이때 그중에서 활용하고 싶은 기능 일부만 사용할때 사용한다.
+
+from 모듈 이름 imporrt 가져오고 싶은 변수 또는 함수
+
+as   : 모듈을 가져올 때 이름이 충돌하는 경우나 이름을 줄이고 싶은경우 as를 사용하여 대체한다.
+
+import 모듈 as 사용하고싶은 식별자
+
+ramdom 모듈 : 랜덤한 값을 생성할 때 사용하는 모듈
+
+sys 모듈 : 시스템과 관련된 정보를 가지고 있는 모듈
+
+os 모듈 : 운영체제와 관련된 기능을 가지고 있는 모듈
+
+datetime : 날짜 시간과 과련된 모듈로 날짜 형식을 만들 때 자주 사용되는 코드로 구성되어 있다.
+
+time : 시간과 관련된 기능을 다룰 때 사용합니다.
+
+urlib : url을 다루는 라이버러리 입니다.
+
+정규 표현식
+
+[https://docs.python.org/ko/3/howto/regex.html](https://docs.python.org/ko/3/howto/regex.html)
+
+모듈 설치
+
+pip install 모듈 이름
+
+Beautiful Soup 모듈 : 웹 페이지 븐석 모듈
+
+```python
+#모듈을 읽어 드립니다
+from urllib import request
+from bs4 import BeautifulSoup
+
+#urlopen() 함수로 기상청의 날씨를 읽습니다.
+target = request.urlopen("http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=109")
+
+# Beautifulsoup을 사용해 전국 날씨를 읽습니다.
+soup = BeautifulSoup(target,"html.parser")
+
+#location 태그를 찾습니다.
+for location in soup.select("location"):
+    #내부의 city, wf , tmn, tmx 태크를 찾아 출력합니다.
+    print("도시:",location.select_one("city").string)
+    print("날씨:",location.select_one("wf").string)
+    print("최저기온:",location.select_one("tmn").string)
+    print("최고기온:",location.select_one("tmx").string)
+    print()
+```
+
+Django : 웹 개발시 매우 다양한 웹 기능을 제공하는 웹 프레임워크
+
+flask 모듈 : Django보단 작은 기능을 제공하는 웹 프레임워크
+
+flask 모듈 
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return"<h1>Hello World!</h1>"
+```
+
+flask  실행시 cmd 창에서 flask run을 사용하여 실행한다.
