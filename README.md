@@ -1,3 +1,5 @@
+# 4월 1주차 수업
+
 이 문서는 수업에 대한 내용을 다룹니다.
 
 ## 1주차 일정
@@ -875,16 +877,15 @@ break : 반복문에서 벗어날때 사용한다
 
 continue : 현재 반복을 생략하고 다음 반복으로 넘어갈때 사용한다.
 
-////1주차 끝
 # 4월 2주차 수업
 
 이 문서는 수업에 대한 내용을 다룹니다.
 
 ## 2주차 일정
 
-- 월요일:
+- 월요일: 외부 모듈
 - 화요일:
-- 수요일:
+- 수요일:  선형 리스트,
 - 목요일:
 - 금요일:
 
@@ -1145,3 +1146,280 @@ def hello():
 ```
 
 flask  실행시 cmd 창에서 flask run을 사용하여 실행한다.
+
+라이브러리 : 정상적인 제어 하는 모듈
+
+개발자가 모듈의 기능을 호출하는 형태
+
+# 수업 2023.4.25
+
+프레임워크 : 제어 역전이 발생하는 모듈
+
+모듈이 개발자가 작성한 코드를 실행하는 형태
+
+제어 역전 : 개발자가 모듈의 함수를 호출하는 것이 일반적인 제어 흐림이나 반대로 개발자가 만든 함수를 모듈이 실행하는 것
+
+모듈 만들기
+
+__name__ ==”__main__” : 현재 파일이 엔트리 포인트인지 확인함
+
+패키지 : 모듈이 모인것
+
+entry point : python 명령어를 사용해서 첫 진입파일을 엔트리 포인트 라고 한다
+
+dir 파일을 보여줌
+
+mkdir 폴더생성
+
+rmdir 폴더삭제
+
+pip show (설치된 모듈) : 모듈이 설치된 위치를 확인하 수 있습니다.
+
+파이썬은 크게 두 가지 특징을 가지고 있다.
+
+- main이 존재하지 않는다.
+- 들여쓰기를 통해 코드 실행의 레벨을 결정한다.
+
+현재 모듈의 이름을 담고있는 내장 변수이다. 
+
+이 변수는 **직접 실행된 모듈의 경우 `__main__`이라는 값**
+을 가지게 되며, **직접 실행되지 않은 import된 모듈은 모듈의 이름(파일명)**을 가지게 된다.
+
+바이너리 데이터 : 텍스트 에디터로 열었을때 의미를 이해할 수 없는 데이터
+
+| 비교 | 텍스트 데이터 | 바이너리 데이터 |
+| --- | --- | --- |
+| 구분방법 | 텍스트 데이터로 열었을 떄 읽을 수 있다 | 텍스트 데이터로 열어도 읽을 수 없습니다 |
+| 장점 | 사람이 쉽게 읽을수 있다
+텍스트 에디터로 쉽게 수정할 수 있다 | 용량이 적습니다 |
+| 단점 | 용량이 큽니다 | 사람이 쉽게 읽을 수 없습니다
+일반적으로 텍스트 에디터로 편집할 수 없습니다 |
+
+클래스
+
+객체 지향 프로그래밍 :
+
+객체를 우선으로 생각해서 프로그래밍하는 것
+
+클래스 기반의 객체지향 프로그래밍 
+
+객체 : 여러 속성을 가질 수 있는 대상 
+
+생성자 : 클래스 이름과 같은 함수 ,__init___
+
+클래스 : 객체를 쉽고 편리하게 생성하기 위해 만들어진 구분
+
+인스턴스 클래스를 기반으로 생성한 객체
+
+메소드 클래스가 가진 함수
+
+```python
+#클래스 선언
+class Student:
+    def __init__(self,name,korean,math,english,science):#생성자
+        self.name = name
+        self.korean = korean
+        self.math = math
+        self.english = english
+        self.science = science
+        
+    def get_sum(self):
+        return self.math+self.korean+self.english+self.science
+    
+    def get_average(self):
+        return self.get_sum()/4
+        
+    def to_string(self):
+        return "{}\t{}\t{}".format(self.name,self.get_sum(),self.get_average())
+ #학생 리스트를 선언       
+students = [
+   Student(name="윤인성", korean=87, math=98, english=88, science=95),
+   Student(name="연하진", korean=87, math=98, english=88, science=95),
+   Student(name="구지연", korean=87, math=98, english=88, science=95),
+   Student(name="나선주", korean=87, math=98, english=88, science=95), 
+]
+
+#학생을 한명씩 반복
+print("이름", "총점", "평균",sep="\t")
+for student in students:
+    #출력
+    print(student.to_string())
+```
+
+상속 : 클래스를 기반으로 그 속성과 기능을 물려받아 새로운 클래스를 만드는 것
+
+isinstance(인스턴스,클래스) : 어떤 클래스로부터 만들어졌는지 확인하는 함수 제공
+
+자료구조 : 컴퓨터 분야에서 효율적으로 접근하고 수정할 수 있도록 자료를 구성·관리·저장하는 것
+
+알고리즘 : 컴퓨터 분야나 수학 등 관련 분야에서 어떤 문제를 해결하기 위해 정해진 일련의 단계적인 절차나 방법
+
+자료구조의 개념
+
+컴퓨터 프로그래밍 언어에서 효율적인 자료 형태
+
+단순 자료구조 : 정수 실수 문자 문자열
+
+선형 자료구조 : 리스트 스택 큐
+
+비선형 자료구조 : 트리 그래프
+
+파일 자료구조 : 순차파일 색인파일 직접파일
+
+선형 구조
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7282dafc-1fe0-4474-8d10-88c7e7cc9884/Untitled.png)
+
+비선형 구조
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/51882756-4b09-4299-add5-01091d100769/Untitled.png)
+
+파일 자료구조
+
+파일 내용이 디스크에 저장되는 방식에 따라 순차 파일과 직접 파일로 구분
+
+ 순차 파일(Sequential File)
+• 파일 내용을 논리적인 처리 순서에 따라 연속해서 저장하는 것
+• 구조가 간단하기에 저장되는 공간 효율이 높지만, 다른 내용을 추가하거나 삭제할 경우에는 파일
+내용을 재구성해야 하므로 상당히 시간이 오래 걸림
+
+ 직접 파일(Direct File)
+• 파일 내용을 임의의 물리적 위치에 기록하는 방식으로 직접 접근 방식(Direct Access Method)
+
+ 알고리즘 표현법
+ 일반 언어 표현
+• 일반적인 자연어를 사용해서 설명하듯이 알고리즘을 표현
+• 일반 사람이 이해하기 쉽게 표현할 수 있으나, 최종적으로 코드로 변경하는 데는 한계가 있음
+• 어떤 알고리즘을 사용해야 할지 아이디어가 떠오르지 않는 시점에서, 생각 범위를 넓히는 단계
+정도에 사용하면 무난
+
+ 순서도를 이용한 표현
+• 여러 종류의 상자와 상자를 이어 주는 화살표를 이용해서 명령 순서를 표현
+• 간단한 알고리즘은 쉽게 표현할 수 있지만, 복잡한 알고리즘은 표현하기 어려운 경우가 많음
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/23d38b4d-3bfd-4238-a7a1-deb006353595/Untitled.png)
+
+ 의사코드를 이용한 표현
+• 프로그래밍 언어보다는 좀 더 인간의 언어에 가까운 형태
+• 프로그램 코드와 일반 언어의 중간 형태
+• 프로그램 코드를 직접 코딩하는 것보다 알고리즘을 좀 더 명확하게 정립하는 데 도움이 되고 코드에
+설명을 달지 않아도 이해하는 데 무리 없음
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42dd4339-f800-4a76-aa11-05e0045d6c9b/Untitled.png)
+
+ 혼합 형태
+• 간단한 알고리즘은 직접 코드로 작성
+• 복잡한 알고리즘은 일반 언어, 의사코드, 순서도, 그림 등을 종합적으로 활용해서 표현
+
+ 알고리즘의 성능
+ 알고리즘 성능 측정
+• 알고리즘을 소요 시간을 기준으로 알고리즘 성능을 분석 방법이 ‘시간 복잡도(Time Complexity)’
+
+# 수업 2023.4.25
+
+선형 리스트의 개념
+
+데이터를 일정한 순서로 나열한 자료구조
+
+순차 리스트라고도 함
+
+선형 리스트는 입력 순서대로 저장하는 데이터에 적당
+
+```python
+def add_data(friend):
+    
+    katok.append(None)
+    kLen = len(katok)
+    katok[kLen-1] = friend
+    
+def insert_data(position,friend):    
+    if position < 0 or position > len(katok):    
+        print("데이터를 삽입할 범위를 벗어났습니다.")
+        return
+    
+    katok.append(None)
+    kLen = len(katok)
+    
+    for i in range(kLen-1,position,-1):
+        katok[i]= katok[i-1]
+        katok[i-1] = None
+        
+    katok[position] = friend
+
+def correction_data(position,friend):    
+    if position < 0 or position > len(katok):    
+        print("데이터를 수정할 범위를 벗어났습니다.")
+        return
+    
+    kLen = len(katok)
+    
+    for i in range(kLen-1,position-1):
+        katok[i]= katok[i-1]
+        katok[i-1] = None
+        
+    katok[position] = friend
+    
+def delete_data(position):
+    if position < 0 or position > len(katok):  
+        print("데이터를 삭제할 범위를 벗어났습니다.")
+        return
+          
+    kLen = len(katok)
+    katok[position] = None
+        
+    for i in range(position+1, kLen):
+        katok[i-1] = katok[i]
+        katok[i] = None
+            
+    del(katok[kLen-1])
+
+katok = []
+select = -1
+
+if __name__=="__main__":
+    
+    while (select != 5):
+        
+        select = int(input("선택하세요(1:추가,2:삽입,3:삭제,4:수정,5:종료)-->"))
+        
+        if(select == 1):
+            data = input("추가할 데이터 -->")
+            add_data(data)
+            print(katok)
+        elif (select == 2):
+            pos = int(input("삽입할 위치 -->"))
+            data = input("추가할 데이터 -->")
+            insert_data(pos, data)
+            print(katok)
+        elif (select == 3):
+            pos = int(input("삭제할 위치 -->"))
+            delete_data(pos)
+            print(katok)
+            
+        elif (select == 4):
+            pos = int(input("수정할 위치 -->"))
+            data = input("수정할 데이터 -->")
+            correction_data(pos, data)
+            print(katok)
+                
+        elif (select == 5):
+            print(katok)
+            exit()
+        else :
+            print("1~4 중 하나를 입력하세요")
+            continue
+```
+
+단순 연결 리스트의 개념
+
+노드들이 물리적으로 떨어진 곳에 위치
+
+각 노드의 번지도 순차적이지 않음
+
+화살표로 표시된 연결(링크,Link)을 따라가면 선형 리스트 순서와 같음
+
+노드 구조
+
+단순 연결 리스트는 다음 데이터를 가르키는 링크가 더 필요
+
+노드는 데이터와 링크로 구성된 항목
