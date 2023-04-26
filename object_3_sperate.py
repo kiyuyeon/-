@@ -13,7 +13,7 @@ class Student:
         
     def get_sum(self):
         return self.math+self.korean+self.english+self.science
-    
+     
     def get_average(self):
         return self.get_sum()/4
         
@@ -34,4 +34,5 @@ print("이름", "총점", "평균",sep="\t")
 for student in students:
     #출력
     print(student.to_string())
+
 print("총 인원 {}명".format(Student.count))
